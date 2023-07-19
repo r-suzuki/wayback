@@ -17,11 +17,12 @@ devtools::install_github("r-suzuki/wayback")
 To collect `ranger` package and it's dependent packages on the date `2023-03-01`:
 
 ```
+library(wayback)
 collect(pkgs = "ranger", date = "2023-03-01", outdir = "outdir")
 ```
 
 It downloads the source `tar.gz` files which were available on the day.
-Here is an example of log file:
+Here is an excerpt from the log file:
 
 ```
   package                 file       date    type
