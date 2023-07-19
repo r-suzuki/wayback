@@ -5,7 +5,7 @@
 `wayback` works like a virtual CRAN snapshot for source packages.
 It automatically downloads `tar.gz` files with dependencies,
 all of which were available on a specified day. It also creates
-an R script file to install all the downloaded packages locally.
+an R script file to install downloaded packages locally.
 
 ## Install
 

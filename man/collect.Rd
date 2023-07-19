@@ -15,7 +15,7 @@ Collect source packages on a specified date with dependencies.
 It automatically downloads \code{tar.gz} files and saves them in \code{outdir}.
 
 An R script file named \code{install.R} is also included in \code{outdir},
-which can be used to install all the downloaded packages.
+which can be used to install downloaded packages locally.
 }
 \arguments{
   \item{pkgs}{character vector of the names of packages.}
