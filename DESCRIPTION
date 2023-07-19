@@ -11,3 +11,4 @@ Description: It works like a virtual CRAN snapshot for source packages.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Imports: curl, desc, dplyr, httr, rvest
+URL: https://github.com/r-suzuki/wayback
