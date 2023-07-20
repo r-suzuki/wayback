@@ -37,5 +37,5 @@ which can be used to install downloaded packages locally.
     \code{outdir}.}
 }
 \examples{
-\dontrun{collect(pkgs = "ranger", date = "2023-03-01", outdir = "outdir")}
+\dontrun{wayback::collect(pkgs = "ranger", date = "2023-03-01", outdir = "outdir")}
 }
