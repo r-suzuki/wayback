@@ -2,7 +2,7 @@
 
 ## Overview
 
-`wayback` make a virtual CRAN snapshot for source packages.
+`wayback` makes a virtual CRAN snapshot for source packages.
 It automatically downloads `tar.gz` files with dependencies,
 all of which were available on a specific day.
 
