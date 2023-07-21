@@ -64,6 +64,7 @@ collect <- function(
       pull(code)
   )
 
+  tools::write_PACKAGES("outdir/src/contrib")
   write(script, file.path(outdir, "install.R"))
   capture.output(
     result %>% as.data.frame %>% print,

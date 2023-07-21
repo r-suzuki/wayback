@@ -2,21 +2,22 @@
 
 ## Overview
 
-`wayback` works like a virtual CRAN snapshot for source packages.
+`wayback` make a virtual CRAN snapshot for source packages.
 It automatically downloads `tar.gz` files with dependencies,
-all of which were available on a specified day. It also creates
-an R script file to install downloaded packages locally.
+all of which were available on a specific day.
+
+The output directory can be used as a local package repository.
 
 ## Install
 
-```
+```R
 devtools::install_github("r-suzuki/wayback")
 ```
 
 ## Example
 To collect `ranger` package and it's dependent packages on the date `2023-03-01`:
 
-```
+```R
 wayback::collect(pkgs = "ranger", date = "2023-03-01", outdir = "outdir")
 ```
 
@@ -30,16 +31,11 @@ Here is an excerpt from the log file:
 3    ranger       ranger_0.14.1.tar.gz 2022-06-18 archive
 ```
 
-It also creates an R script named `install.R`:
+The output directory can be used as a local package repository:
 
+```R
+install.packages(pkgs = "ranger", repos = "file:outdir")
 ```
-# virtual snapshot on 2023-03-01 for ranger
-install.packages("src/contrib/Rcpp_1.0.10.tar.gz", repos = NULL, type = "source")
-install.packages("src/contrib/RcppEigen_0.3.3.9.3.tar.gz", repos = NULL, type = "source")
-install.packages("src/contrib/ranger_0.14.1.tar.gz", repos = NULL, type = "source")
-```
-
-You can install all the packages with this script.
 
 ## NOTE
 This project is at the very beginning stage, so everything can be changed shortly.

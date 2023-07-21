@@ -14,17 +14,17 @@ collect(pkgs, date, outdir,
 Collect source packages on a specified date with dependencies.
 It automatically downloads \code{tar.gz} files and saves them in \code{outdir}.
 
-An R script file named \code{install.R} is also included in \code{outdir},
-which can be used to install downloaded packages locally.
+\code{outdir} can be used as local repository for \code{install.packages}.
+See the example for details.
 }
 \arguments{
   \item{pkgs}{character vector of the names of packages.}
   \item{date}{character specifying a date in \code{YYYY-MM-DD} format.
     This function tries to find source packages which were available
     on this date.}
-  \item{outdir}{character specifying the output directory.
-    It will contain downloaded source packages, an R script to install
-    these packages, and a log file.}
+  \item{outdir}{character specifying the output directory path.
+    It will contain downloaded source packages, and can be used as
+    a local package repository. See the example for details.}
   \item{dependencies}{character vector of the dependency level
     for additional downloads. It can include
     \code{c("Depends", "Imports", "LinkingTo", "Suggests")}.}
@@ -37,5 +37,8 @@ which can be used to install downloaded packages locally.
     \code{outdir}.}
 }
 \examples{
-\dontrun{wayback::collect(pkgs = "ranger", date = "2023-03-01", outdir = "outdir")}
+\dontrun{
+wayback::collect(pkgs = "ranger", date = "2023-03-01", outdir = "outdir")
+install.packages(pkgs = "ranger", repos = "file:outdir")
+}
 }
