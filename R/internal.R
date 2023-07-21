@@ -101,17 +101,21 @@
       }
 
       if(length(missing) > 0) {
-        for(m in missing) {
-          cl <- match.call()
-          cl$pkgs <- m
-          cl$exclude <- c(exclude, result$package)
-          result <- bind_rows(result, eval(cl))
-        }
+        cl <- match.call()
+        cl$pkgs <- missing
+        cl$exclude <- c(exclude, result$package)
+
+        result_mis <- eval(cl)
+
+        result <- bind_rows(result, result_mis)
+        exclude <- union(exclude, result_mis$package)
       }
 
       p_tbl <- tibble(package = p, file = gzfile_name,  date = gzfile_date,
                       type = type, url = gzfile_url)
+
       result <- bind_rows(result, p_tbl)
+      exclude <- union(exclude, p)
     }
   }
 
