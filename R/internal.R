@@ -1,7 +1,7 @@
 .collect <- function(
     pkgs,
     date,
-    outdir,
+    outdir_src_contrib,
     dependencies,
     repos,
     pkg_latest,
@@ -79,7 +79,7 @@
       }
 
       # Download and uncompress tar.gz
-      gzf <- file.path(outdir, basename(gzfile_url))
+      gzf <- file.path(outdir_src_contrib, basename(gzfile_url))
       download.file(url = gzfile_url, destfile = gzf)
 
       tmpd <- tempdir()
