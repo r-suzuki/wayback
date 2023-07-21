@@ -24,9 +24,10 @@ It downloads the source `tar.gz` files which were available on the day.
 Here is an excerpt from the log file:
 
 ```
-  package                 file       date    type
-1    Rcpp   Rcpp_1.0.10.tar.gz 2023-01-22 archive
-2  ranger ranger_0.14.1.tar.gz 2022-06-18 archive
+    package                       file       date    type
+1      Rcpp         Rcpp_1.0.10.tar.gz 2023-01-22 archive
+2 RcppEigen RcppEigen_0.3.3.9.3.tar.gz 2022-11-05  latest
+3    ranger       ranger_0.14.1.tar.gz 2022-06-18 archive
 ```
 
 It also creates an R script named `install.R`:
@@ -34,6 +35,7 @@ It also creates an R script named `install.R`:
 ```
 # virtual snapshot on 2023-03-01 for ranger
 install.packages("Rcpp_1.0.10.tar.gz", repos = NULL, type = "source")
+install.packages("RcppEigen_0.3.3.9.3.tar.gz", repos = NULL, type = "source")
 install.packages("ranger_0.14.1.tar.gz", repos = NULL, type = "source")
 ```
 

@@ -2,7 +2,7 @@ collect <- function(
     pkgs,
     date,
     outdir,
-    dependencies = c("Imports", "Depends"),
+    dependencies = c("Depends", "Imports", "LinkingTo"),
     repos = "https://cloud.r-project.org",
     skip_installed = FALSE,
     skip_recommended = TRUE,
