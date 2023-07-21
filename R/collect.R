@@ -9,7 +9,7 @@ collect <- function(
     overwrite = FALSE
 ) {
 
-  # create dir if not exists
+  # check outdir and create outdir/src/contrib
   if(file.exists(outdir)) {
     if(!file.info(outdir)$isdir) {
       stop("outdir should be a directory, not a file")
@@ -17,7 +17,6 @@ collect <- function(
       stop("outdir is not empty. Set overwrite = TRUE to force overwriting")
     }
   }
-
   outdir_src_contrib <- file.path(outdir, "src", "contrib")
   dir.create(outdir_src_contrib, recursive = TRUE)
 
