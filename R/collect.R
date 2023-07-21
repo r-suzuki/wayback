@@ -12,13 +12,14 @@ collect <- function(
   # create dir if not exists
   if(file.exists(outdir)) {
     if(!file.info(outdir)$isdir) {
-      stop("outdir should be a directory path")
+      stop("outdir should be a directory, not a file")
     } else if(length(list.files(outdir)) > 0 && !overwrite){
       stop("outdir is not empty. Set overwrite = TRUE to force overwriting")
     }
-  } else {
-    dir.create(outdir, recursive = TRUE)
   }
+
+  outdir_src_contrib <- file.path(outdir, "src", "contrib")
+  dir.create(outdir_src_contrib, recursive = TRUE)
 
   # latest packages
   pkg_by_date_url <- paste0(repos, "/web/packages/available_packages_by_date.html")
@@ -49,7 +50,7 @@ collect <- function(
   result <- .collect(
     pkgs = pkgs,
     date = date,
-    outdir = outdir,
+    outdir_src_contrib = outdir_src_contrib,
     dependencies = dependencies,
     repos = repos,
     pkg_latest = pkg_latest,
@@ -58,7 +59,8 @@ collect <- function(
   script <- c(
     paste0("# virtual snapshot on ", date, " for ", paste(pkgs, collapse = ", ")),
     result %>%
-      mutate(code = paste0('install.packages("', file, '", repos = NULL, type = "source")')) %>%
+      mutate(code = paste0('install.packages("', file.path("src", "contrib", file),
+                           '", repos = NULL, type = "source")')) %>%
       pull(code)
   )
 

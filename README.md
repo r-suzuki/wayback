@@ -34,9 +34,12 @@ It also creates an R script named `install.R`:
 
 ```
 # virtual snapshot on 2023-03-01 for ranger
-install.packages("Rcpp_1.0.10.tar.gz", repos = NULL, type = "source")
-install.packages("RcppEigen_0.3.3.9.3.tar.gz", repos = NULL, type = "source")
-install.packages("ranger_0.14.1.tar.gz", repos = NULL, type = "source")
+install.packages("src/contrib/Rcpp_1.0.10.tar.gz", repos = NULL, type = "source")
+install.packages("src/contrib/RcppEigen_0.3.3.9.3.tar.gz", repos = NULL, type = "source")
+install.packages("src/contrib/ranger_0.14.1.tar.gz", repos = NULL, type = "source")
 ```
 
 You can install all the packages with this script.
+
+## NOTE
+This project is at the very beginning stage, so everything can be changed shortly.
